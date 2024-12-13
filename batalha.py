@@ -64,10 +64,12 @@ print(f"{num_personagens} Personagens Entram em Batalha!")
 # This will then sort them by life
 personagens = ordenar_personagens_por_vida(personagens)
 
+# This will show all the characters that were imported
 print(personagens[0])
 print(personagens[1])
 print(personagens[2])
 
+# Sequence of combat
 personagens[0].atacar(personagens[1])
 print(personagens[1])
 
