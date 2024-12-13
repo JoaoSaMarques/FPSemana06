@@ -1,5 +1,6 @@
 import json
 
+# This will give us a base template for each class until we import characters
 class Personagem:
     def __init__(self, nome, vida, ataque):
         self.nome = nome
@@ -22,6 +23,7 @@ class Mago(Personagem):
 class Arqueiro(Personagem):
     pass
 
+# We will import the character using this to use later
 def importar_personagens(caminho):
     """
         Função que importa personagens a partir de um ficheiro JSON.
@@ -45,6 +47,7 @@ def importar_personagens(caminho):
     
     return personagens, len(personagens)
 
+# After we import the character, this will be called to sort them by life
 def ordenar_personagens_por_vida(personagens):
     """
         Função que ordena a lista de personagens de acordo com os pontos de vida (do menor para o maior).
@@ -54,9 +57,11 @@ def ordenar_personagens_por_vida(personagens):
     """
     return sorted(personagens, key=lambda p: p.vida)
 
+# This will import the character from thhe "personagens.json" file
 personagens, num_personagens = importar_personagens('personagens.json')
 print(f"{num_personagens} Personagens Entram em Batalha!")
 
+# This will then sort them by life
 personagens = ordenar_personagens_por_vida(personagens)
 
 print(personagens[0])
