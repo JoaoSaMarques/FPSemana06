@@ -20,14 +20,18 @@ class Guerreiro(Personagem):
         inimigo.vida -= 30
         print(f"{self.nome} usa Golpe Poderoso em {inimigo.nome} e Causa 30 de Dano!")
 
-# Mago has a special ability to 
+# Mago has a special ability to heal himself
 class Mago(Personagem):
     def especial(self):
         self.vida += 25
         print(f"{self.nome} usa Cura e Ganha 25 Pontos de Vida!")
 
+# Arqueiro has a special ability to shoot a rain of arrows
 class Arqueiro(Personagem):
-    pass
+    def especial(self, inimigos):
+        for inimigo in inimigos:
+            inimigo.vida -= 15
+            print(f"{self.nome} usa Chuva de Flechas e Causa 15 de Dano a {inimigo.nome}!")
 
 # We will import the character using this to use later
 def importar_personagens(caminho):
