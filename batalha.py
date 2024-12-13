@@ -31,7 +31,19 @@ def importar_personagens(caminho):
         - lista de personagens.
         - quantidade total de personagens importados.
     """
-    pass
+    with open(caminho, 'r') as file:
+        data = json.load(file)
+    
+    personagens = []
+    for item in data:
+        if item['classe'] == 'Guerreiro':
+            personagens.append(Guerreiro(item['nome'], item['vida'], item['ataque']))
+        elif item['classe'] == 'Mago':
+            personagens.append(Mago(item['nome'], item['vida'], item['ataque']))
+        elif item['classe'] == 'Arqueiro':
+            personagens.append(Arqueiro(item['nome'], item['vida'], item['ataque']))
+    
+    return personagens, len(personagens)
 
 def ordenar_personagens_por_vida(personagens):
     """
