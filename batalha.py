@@ -14,8 +14,11 @@ class Personagem:
     def __str__(self):
         return f"{self.nome} {self.vida}"
 
+# Guerreiro has a special ability to heal himself
 class Guerreiro(Personagem):
-    pass
+    def especial(self):
+        self.vida += 25
+        print(f"{self.nome} usa Cura e Ganha 25 Pontos de Vida!")
 
 class Mago(Personagem):
     pass
