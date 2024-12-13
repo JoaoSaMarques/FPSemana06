@@ -52,7 +52,7 @@ def ordenar_personagens_por_vida(personagens):
         Retorna:
         - lista de personagens ordenada por vida.
     """
-    pass
+    return sorted(personagens, key=lambda p: p.vida)
 
 personagens, num_personagens = importar_personagens('personagens.json')
 print(f"{num_personagens} Personagens Entram em Batalha!")
