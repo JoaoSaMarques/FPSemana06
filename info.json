@@ -1,0 +1,14 @@
+{
+    "1": {
+        "id": 1,
+        "num_members": 2,
+        "terrain_area": 100,
+        "monthly_cost": 50
+    },
+    "3": {
+        "id": 3,
+        "num_members": 1,
+        "terrain_area": 50,
+        "monthly_cost": 25
+    }
+}
