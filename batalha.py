@@ -14,14 +14,17 @@ class Personagem:
     def __str__(self):
         return f"{self.nome} {self.vida}"
 
-# Guerreiro has a special ability to heal himself
+# Guerreiro has a special ability to deal more damage
 class Guerreiro(Personagem):
+    def especial(self, inimigo):
+        inimigo.vida -= 30
+        print(f"{self.nome} usa Golpe Poderoso em {inimigo.nome} e Causa 30 de Dano!")
+
+# Mago has a special ability to 
+class Mago(Personagem):
     def especial(self):
         self.vida += 25
         print(f"{self.nome} usa Cura e Ganha 25 Pontos de Vida!")
-
-class Mago(Personagem):
-    pass
 
 class Arqueiro(Personagem):
     pass
