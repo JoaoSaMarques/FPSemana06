@@ -1,0 +1,4 @@
+Diogo Andrade;FP;20
+Joaquim Manuel;IC;10
+Valter Antonio;FP;14
+Diogo Andrade;IC;20

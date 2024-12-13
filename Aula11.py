@@ -119,3 +119,133 @@ def data_validator(data):
     return "A data é valida!"
     
 print(data_validator("30/01/2003"))
+
+#===============================================================================
+
+#6
+
+def filtro(lista, funcao):
+    
+    resultado = []
+    
+    for valor in lista:
+        if funcao(valor):
+            resultado.append(valor)
+            
+    return resultado
+        
+        
+print(filtro([1, 2, 3, 4, 5, 6], lambda value : value % 2 == 0))
+# [2, 4, 6]
+
+print(filtro([1, 2, 3, 4, 5, 6], lambda value : value > 3))
+# [4, 5, 6]
+
+#===============================================================================
+
+#7
+from collections import deque
+
+fila = deque()
+
+def adicionar_evento(evento):   
+    
+    global fila
+    
+    fila.appendleft(evento)
+    print(f"evento {evento} adicionado à fila")
+
+def processar_evento():
+    global fila
+    
+    if fila:
+        evento = fila.pop()
+        print(f"O evento {evento} foi processado!")
+    else:
+        print("Não há eventos para processar")
+    
+adicionar_evento("Evento 1")
+adicionar_evento("Evento 2")
+processar_evento()
+
+#===============================================================================
+
+#8
+import random
+
+def compute_hist(numero, funcao):
+    dicionario = {}
+    
+    for i in range(numero):
+        resultado = int(funcao())
+        
+    if resultado not in dicionario:
+        dicionario[resultado] = 1
+        
+    else:
+        dicionario[resultado] += 1
+        
+    return dicionario
+
+print(compute_hist(10, lambda : random.randint(1, 7)))
+print(compute_hist(1000, lambda : random.randint(1, 7)))
+print(compute_hist(1000, lambda : random.gauss(4, 0.8)))
+
+#===============================================================================
+
+#9
+
+def carregar_dados(nome):
+    dados = {}
+    
+    file = open(nome, "rt")
+    informacao = file.readlines()
+    file.close()
+    
+    for aluno in informacao:
+        nome, cadeira, nota = aluno.strip().split(";")
+        
+        if nome not in dados:
+            dados[nome] = [] 
+        dados[nome].append((cadeira, nota))
+        
+    return dados
+
+print(carregar_dados("notas.txt"))
+
+#===============================================================================
+
+#10
+import json
+
+def salvar_dados(nome):
+    dicionario = carregar_dados(nome)
+    
+    name, _ = nome.split(".")
+
+    file = open(name + ".JSON", "w")
+
+    json.dump(dicionario, file)
+    
+    file.close()
+    
+    return name
+    
+    print(f"wrote to file {name}.JSON")
+    
+salvar_dados("notas.txt")
+
+
+
+def processar_dados(entrada, saida):
+    e = open(entrada + ".JSON", "r")
+    dados = json.load(e)
+    e.close()
+    
+    s = open(saida + ".csv", "w")
+    
+    for nome, notas in dados.items():
+        soma = 0
+        for nota in notas:
+            soma += int(nota)
+        media = soma /len(notas)
