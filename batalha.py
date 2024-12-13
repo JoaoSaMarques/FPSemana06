@@ -31,7 +31,7 @@ class Arqueiro(Personagem):
     def especial(self, inimigos):
         for inimigo in inimigos:
             inimigo.vida -= 15
-            print(f"{self.nome} usa Chuva de Flechas e Causa 15 de Dano a {inimigo.nome}!")
+        print(f"{self.nome} usa Chuva de Flechas e Causa 15 de Dano a Todos os Inimigos!")
 
 # We will import the character using this to use later
 def importar_personagens(caminho):
@@ -92,7 +92,7 @@ print(personagens[0])
 personagens[0].especial()
 print(personagens[0])
 
-personagens[1].especial([personagens[0], personagens[1]])
+personagens[1].especial([personagens[0], personagens[2]])
 print(personagens[0])
 print(personagens[1])
 
