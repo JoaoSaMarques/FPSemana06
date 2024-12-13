@@ -26,11 +26,11 @@ class Mago(Personagem):
         self.vida += 25
         print(f"{self.nome} usa Cura e Ganha 25 Pontos de Vida!")
 
-# Arqueiro has a special ability to shoot a rain of arrows
 class Arqueiro(Personagem):
     def especial(self, inimigos):
         for inimigo in inimigos:
-            inimigo.vida -= 15
+            if inimigo != self:
+                inimigo.vida -= 15
         print(f"{self.nome} usa Chuva de Flechas e Causa 15 de Dano a Todos os Inimigos!")
 
 # We will import the character using this to use later
@@ -92,7 +92,7 @@ print(personagens[0])
 personagens[0].especial()
 print(personagens[0])
 
-personagens[1].especial([personagens[0], personagens[2]])
+personagens[1].especial([personagens[0], personagens[1]])
 print(personagens[0])
 print(personagens[1])
 
